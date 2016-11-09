@@ -9,9 +9,9 @@ class Eventos {
 		this._lista[evento] = callback;
 	}
 
-	emit(evento) {
+	emit(evento, ...args) {
 		if(this._lista[evento])
-			this._lista[evento]();
+			this._lista[evento](...args);
 	}
 }
 
