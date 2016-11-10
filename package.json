@@ -1,8 +1,8 @@
 {
   "name": "eventos",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tratamento generico de eventos no Gartic",
-  "main": "src/eventos.js",
+  "main": "build/eventos.js",
   "scripts": {
     "test": "eslint src/",
     "build": "npm test && babel src -d build"
