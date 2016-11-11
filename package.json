@@ -5,8 +5,11 @@
   "main": "build/eventos.js",
   "scripts": {
     "test": "eslint src/",
-    "build": "npm test && babel src -d build"
+    "build": "npm test && babel src -d build && git add build/eventos.js"
   },
+  "pre-commit": [
+    "build"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Gartic/eventos.git"
@@ -23,7 +26,8 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
-    "eslint": "^3.9.0"
+    "eslint": "^3.9.0",
+    "pre-commit": "^1.1.3"
   },
   "dependencies": {}
 }
