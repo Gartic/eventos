@@ -17,6 +17,7 @@ Verificar a sintaxe padrão através do comando:
 npm test
 ```
 ## Demo
+- [Basico](demos/basico/) - Exemplo básico de emissão de eventos
 
 ## API
 
