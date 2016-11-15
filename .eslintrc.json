@@ -33,6 +33,10 @@
 		],
 		"no-console": [
 			"error", { "allow": ["log"] }
+		],
+		"valid-jsdoc": [
+			"error",
+			{ "requireReturn": false }
 		]
     },
 	"parserOptions": {
