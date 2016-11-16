@@ -17,7 +17,11 @@ class Eventos {
 	 * @param {function} callback Função a ser chamada assim que o evento for disparado
 	 */
 	on(evento, callback) {
-		this._lista[evento] = callback;
+		//verificando se ja existe marcador para o evento
+		if(!this._lista[evento]) this._lista[evento] = [];
+
+		//agregando callback ao marcador
+		this._lista[evento].push(callback);
 	}
 
 	/**
@@ -26,8 +30,12 @@ class Eventos {
 	 * @param {string} evento Nome/indice do evento a ser disparado
 	 */
 	emit(evento, ...args) {
-		if(this._lista[evento])
-			this._lista[evento](...args);
+		//checando se evento existe
+		if(this._lista[evento]) {
+			//executando cada callback atrelado ao evento
+			for(let callback of this._lista[evento])
+				callback(...args);
+		}
 	}
 }
 

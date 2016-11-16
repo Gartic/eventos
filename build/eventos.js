@@ -28,7 +28,11 @@ var Eventos = function () {
 	_createClass(Eventos, [{
 		key: 'on',
 		value: function on(evento, callback) {
-			this._lista[evento] = callback;
+			//verificando se ja existe marcador para o evento
+			if (!this._lista[evento]) this._lista[evento] = [];
+
+			//agregando callback ao marcador
+			this._lista[evento].push(callback);
 		}
 
 		/**
@@ -40,13 +44,38 @@ var Eventos = function () {
 	}, {
 		key: 'emit',
 		value: function emit(evento) {
-			var _lista;
+			//checando se evento existe
+			if (this._lista[evento]) {
+				for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+					args[_key - 1] = arguments[_key];
+				}
 
-			for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-				args[_key - 1] = arguments[_key];
+				//executando cada callback atrelado ao evento
+				var _iteratorNormalCompletion = true;
+				var _didIteratorError = false;
+				var _iteratorError = undefined;
+
+				try {
+					for (var _iterator = this._lista[evento][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+						var callback = _step.value;
+
+						callback.apply(undefined, args);
+					}
+				} catch (err) {
+					_didIteratorError = true;
+					_iteratorError = err;
+				} finally {
+					try {
+						if (!_iteratorNormalCompletion && _iterator.return) {
+							_iterator.return();
+						}
+					} finally {
+						if (_didIteratorError) {
+							throw _iteratorError;
+						}
+					}
+				}
 			}
-
-			if (this._lista[evento]) (_lista = this._lista)[evento].apply(_lista, args);
 		}
 	}]);
 

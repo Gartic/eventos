@@ -23,15 +23,19 @@ class Teste extends Eventos {
 
 let teste = new Teste();
 let retorno = document.getElementById('retorno');
-teste.on('verde', (hex) => {
+teste.on('verde', hex => {
 	retorno.style.color = hex;
 	retorno.textContent = 'Digitou verde';
 });
-teste.on('vermelho', (hex) => {
+teste.on('vermelho', hex => {
 	retorno.style.color = hex;
 	retorno.textContent = 'Digitou vermelho';
 });
-teste.on('azul', (hex) => {
+//testando dois callbacks para o mesmo evento...
+teste.on('vermelho', hex => {
+	retorno.textContent += '!!!';
+});
+teste.on('azul', hex => {
 	retorno.style.color = hex;
 	retorno.textContent = 'Digitou azul';
 });
