@@ -39,6 +39,7 @@ var Eventos = function () {
    * Emitindo um evento
    *
    * @param {string} evento Nome/indice do evento a ser disparado
+   * @returns {boolean} Se o evento possui um registro ou não
    */
 
 	}, {
@@ -75,7 +76,10 @@ var Eventos = function () {
 						}
 					}
 				}
+
+				return true;
 			}
+			return false;
 		}
 	}]);
 

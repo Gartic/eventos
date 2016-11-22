@@ -28,6 +28,7 @@ class Eventos {
 	 * Emitindo um evento
 	 *
 	 * @param {string} evento Nome/indice do evento a ser disparado
+	 * @returns {boolean} Se o evento possui um registro ou não
 	 */
 	emit(evento, ...args) {
 		//checando se evento existe
@@ -35,7 +36,10 @@ class Eventos {
 			//executando cada callback atrelado ao evento
 			for(let callback of this._lista[evento])
 				callback(...args);
+
+			return true;
 		}
+		return false;
 	}
 }
 
