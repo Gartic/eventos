@@ -43,7 +43,4 @@ class Eventos {
 	}
 }
 
-// Expondo como um modulo common js
-if (typeof module !== 'undefined' && module.exports) {
-	module.exports = Eventos;
-}
+export default Eventos;
