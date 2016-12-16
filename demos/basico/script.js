@@ -1,5 +1,7 @@
 'use strict';
 
+import Eventos from '../../src/eventos.js';
+
 class Teste extends Eventos {
 	constructor() {
 		super();
