@@ -85,6 +85,18 @@ var Eventos = function () {
 			}
 			return false;
 		}
+
+		/**
+   * Remove todos os listeners de um evento
+   *
+   * @param {string} evento Evento a ser zerado
+   */
+
+	}, {
+		key: 'removeAllListeners',
+		value: function removeAllListeners(evento) {
+			delete this._lista[evento];
+		}
 	}]);
 
 	return Eventos;

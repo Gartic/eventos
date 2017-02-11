@@ -33,3 +33,8 @@ Retorna `true` caso o evento possua um registro, caso contrário `false`.
 - `callback` **Function** - Função a ser chamada assim que o evento for disparado
 
 Criando um evento para o índice específico (página).
+
+### eventos.removeAllListeners(evento, callback)
+- `evento` **String** - Evento a ser zerado
+
+Remove todos os listeners de um evento.

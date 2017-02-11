@@ -41,6 +41,15 @@ class Eventos {
 		}
 		return false;
 	}
+
+	/**
+	 * Remove todos os listeners de um evento
+	 *
+	 * @param {string} evento Evento a ser zerado
+	 */
+	removeAllListeners(evento) {
+		delete this._lista[evento];
+	}
 }
 
 export default Eventos;

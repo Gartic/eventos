@@ -20,6 +20,11 @@ class Teste extends Eventos {
 					break;
 			}
 		},false);
+
+		let botao = document.querySelector('button');
+		botao.addEventListener('click',() => {
+			super.removeAllListeners('azul');
+		},false);
 	}
 }
 
