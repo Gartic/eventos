@@ -87,6 +87,39 @@ var Eventos = function () {
 		}
 
 		/**
+   * Adiciona um listener no topo da chamada do evento
+   *
+   * @param {string} evento Nome/indice do evento a ser adicionado
+   * @param {function} callback Função a ser chamada assim que o evento for disparado
+   */
+
+	}, {
+		key: 'prependListener',
+		value: function prependListener(evento, callback) {
+			//verificando se ja existe marcador para o evento
+			if (!this._lista[evento]) this._lista[evento] = [];
+
+			//agregando callback ao marcador
+			this._lista[evento].unshift(callback);
+		}
+
+		/**
+   * Remove um listener específico do evento
+   *
+   * @param {string} evento Nome/indice do evento
+   * @param {function} callback Função a ser se removida
+   */
+
+	}, {
+		key: 'removeListener',
+		value: function removeListener(evento, callback) {
+			if (this._lista[evento]) {
+				var pos = this._lista[evento].indexOf(callback);
+				if (pos != -1) this._lista[evento].splice(pos, 1);
+			}
+		}
+
+		/**
    * Remove todos os listeners de um evento
    *
    * @param {string} evento Evento a ser zerado

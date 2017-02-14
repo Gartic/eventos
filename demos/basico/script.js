@@ -20,11 +20,6 @@ class Teste extends Eventos {
 					break;
 			}
 		},false);
-
-		let botao = document.querySelector('button');
-		botao.addEventListener('click',() => {
-			super.removeAllListeners('azul');
-		},false);
 	}
 }
 
@@ -34,15 +29,31 @@ teste.on('verde', hex => {
 	retorno.style.color = hex;
 	retorno.textContent = 'Digitou verde';
 });
-teste.on('vermelho', hex => {
+
+//testando dois callbacks para o mesmo evento...
+let funcVermelho = hex => {
+	retorno.textContent += '!!!';
+};
+teste.on('vermelho', funcVermelho);
+
+teste.prependListener('vermelho', hex => {
 	retorno.style.color = hex;
 	retorno.textContent = 'Digitou vermelho';
 });
-//testando dois callbacks para o mesmo evento...
-teste.on('vermelho', hex => {
-	retorno.textContent += '!!!';
-});
+
 teste.on('azul', hex => {
 	retorno.style.color = hex;
 	retorno.textContent = 'Digitou azul';
 });
+
+
+let botao = document.querySelector('#azul');
+botao.addEventListener('click',() => {
+	teste.removeAllListeners('azul');
+},false);
+
+
+let botao2 = document.querySelector('#vermelho');
+botao2.addEventListener('click',() => {
+	teste.removeListener('vermelho',funcVermelho);
+},false);

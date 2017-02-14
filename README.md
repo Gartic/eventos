@@ -34,7 +34,19 @@ Retorna `true` caso o evento possua um registro, caso contrário `false`.
 
 Criando um evento para o índice específico (página).
 
-### eventos.removeAllListeners(evento, callback)
+### eventos.prependListener(evento, callback)
+- `evento` **String** - Nome/indice do evento a ser adicionado
+- `callback` **Function** - Função a ser chamada assim que o evento for disparado
+
+Adiciona um listener no topo da chamada do evento.
+
+### eventos.removeListener(evento, callback)
+- `evento` **String** - Nome/indice do evento
+- `callback` **Function** - Função a ser se removida
+
+Remove um listener específico do evento.
+
+### eventos.removeAllListeners(evento)
 - `evento` **String** - Evento a ser zerado
 
 Remove todos os listeners de um evento.
